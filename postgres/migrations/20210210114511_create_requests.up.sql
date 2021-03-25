@@ -1,0 +1,7 @@
+CREATE TABLE requests(
+    id BIGSERIAL PRIMARY KEY,
+    username VARCHAR(55) UNIQUE NOT NULL,
+    email VARCHAR(255) UNIQUE NOT NULL,
+    phone VARCHAR(255) UNIQUE NOT NULL,
+    full_text TEXT
+);

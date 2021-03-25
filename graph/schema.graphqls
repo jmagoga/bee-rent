@@ -1,0 +1,78 @@
+# type Todo {
+#   id: ID!
+#   text: String!
+#   done: Boolean!
+#   user: User!
+# }
+
+# type User {
+#   id: ID!
+#   name: String!
+# }
+
+# type Query {
+#   todos: [Todo!]!
+# }
+
+# input NewTodo {
+#   text: String!
+#   userId: String!
+# }
+
+# type Mutation {
+#   createTodo(input: NewTodo!): Todo!
+# }
+
+type Request {
+  id: ID!
+  username: String!
+  email: String!
+  phone: String!
+  full_text: String!
+}
+
+input NewRequest {
+  username: String!
+  email: String!
+  phone: String!
+  full_text: String!
+}
+
+input UpdateBee {
+  id: ID
+  username: String
+  info: String
+  imageURL: String
+  wikiURL: String
+}
+
+type Bee {
+  id: ID!
+  username: String!
+  info: String!
+  imageURL: String!
+  wikiURL: String!
+}
+
+input NewBee {
+  username: String!
+  info: String!
+  imageURL: String!
+  wikiURL: String!
+}
+
+input requestFilter {
+  full_text: String
+}
+
+type Query {
+  bees: [Bee!]!
+  requests(filter: requestFilter, limit: Int = 10, offset: Int = 0): [Request!]!
+}
+
+type Mutation {
+  createRequest(input: NewRequest!): Request!
+  createBee(input: NewBee!): Bee!
+  updateBee(id: ID!, input: UpdateBee!): Bee!
+  deleteBee(id: ID!): Boolean!
+}

@@ -1,0 +1,5 @@
+
+CREATE TABLE bees (
+    id BIGSERIAL PRIMARY KEY,
+    username VARCHAR(55) UNIQUE NOT NULL
+);
