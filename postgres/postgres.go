@@ -5,10 +5,8 @@ import (
 	"fmt"
 
 	"github.com/go-pg/pg/v10"
-	_ "github.com/lib/pq" // tirar essa se houver problemas
+	_ "github.com/lib/pq"
 )
-
-// (3:30) nao entendi esses beforequery and afterquery ainda. EQuimper.
 
 type DBLogger struct {}
 
@@ -31,5 +29,4 @@ func New(opts *pg.Options) *pg.DB {
 
 // migrate create -ext sql -dir postgres/migrations create_bees   
 // migrate -path "postgres/migrations" -database "$POSTGRESQL up"
-// comando acima roda a migracao dos arquivos da pasta migrations. aquele
-// $POSTGRESQL eh a url que botei no .env e depois meti source .env
+// $POSTGRESQL
