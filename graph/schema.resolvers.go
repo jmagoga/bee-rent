@@ -13,16 +13,6 @@ import (
 )
 
 func (r *mutationResolver) CreateRequest(ctx context.Context, input model.NewRequest) (*model.Request, error) {
-	// request := &model.Request{
-	// 	ID:       fmt.Sprintf("T%d", rand.Int()),
-	// 	Username: input.Username,
-	// 	Email:    input.Email,
-	// 	Phone:    input.Phone,
-	// 	FullText: input.FullText,
-	// }
-	// r.requests = append(r.requests, request)
-	// return request, nil
-
 	// new, with db
 	if len(input.Username) < 3 {
 		return nil, errors.New("name not long enough")
@@ -121,12 +111,10 @@ func (r *mutationResolver) DeleteBee(ctx context.Context, id string) (bool, erro
 }
 
 func (r *queryResolver) Bees(ctx context.Context) ([]*model.Bee, error) {
-	// return r.bees, nil
 	return r.BeesRepo.GetBees()
 }
 
 func (r *queryResolver) Requests(ctx context.Context, filter *model.RequestFilter, limit *int, offset *int) ([]*model.Request, error) {
-	// return r.requests, nil
 	return r.RequestsRepo.GetRequests(filter, limit, offset)
 }
 
